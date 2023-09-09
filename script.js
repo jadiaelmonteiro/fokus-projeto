@@ -4,21 +4,27 @@ const shortBt = document.querySelector('.app__card-button--curto');
 const longBt = document.querySelector('.app__card-button--longo');
 const banner = document.querySelector('.app__image');
 const title = document.querySelector('.app__title');
+const buttons = document.querySelectorAll('.app__card-button');
 
 focoBt.addEventListener('click', () => {
     alterContent('foco');
+    focoBt.classList.add('active');
 });
 
 shortBt.addEventListener('click', () => {
     alterContent('descanso-curto');
-
+    shortBt.classList.add('active');
 });
 
 longBt.addEventListener('click', () => {
     alterContent('descanso-longo');
+    longBt.classList.add('active');
 });
 
 function alterContent(content) {
+    buttons.forEach(function (content) {
+        content.classList.remove('active');
+    });
     html.setAttribute('data-contexto', content);
     banner.setAttribute('src', `/images/${content}.png`);
     switch (content) {
