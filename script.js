@@ -5,16 +5,19 @@ const longBt = document.querySelector('.app__card-button--longo');
 const banner = document.querySelector('.app__image');
 
 focoBt.addEventListener('click', () => {
-    html.setAttribute('data-contexto', 'foco')
-    banner.setAttribute('src', '/images/foco.png');
+    alterContent('foco');
 });
 
 shortBt.addEventListener('click', () => {
-    html.setAttribute('data-contexto', 'descanso-curto');
-    banner.setAttribute('src', '/images/descanso-curto.png');
+    alterContent('descanso-curto');
+
 });
 
 longBt.addEventListener('click', () => {
-    html.setAttribute('data-contexto', 'descanso-longo');
-    banner.setAttribute('src', '/images/descanso-longo.png');
+    alterContent('descanso-longo');
 });
+
+function alterContent(content) {
+    html.setAttribute('data-contexto', content);
+    banner.setAttribute('src', `/images/${content}.png`);
+}
