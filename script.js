@@ -5,6 +5,17 @@ const longBt = document.querySelector('.app__card-button--longo');
 const banner = document.querySelector('.app__image');
 const title = document.querySelector('.app__title');
 const buttons = document.querySelectorAll('.app__card-button');
+const musicFocoInput = document.querySelector('#alter-music');
+const music = new Audio('/sounds/luna-rise-part-one.mp3');
+music.loop = true;
+
+musicFocoInput.addEventListener('change', () => {
+    if (music.paused) {
+        music.play();
+    } else {
+        music.pause();
+    }
+});
 
 focoBt.addEventListener('click', () => {
     alterContent('foco');
